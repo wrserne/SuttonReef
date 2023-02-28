@@ -6,7 +6,7 @@ API Selection
 For this project, we have chosen to use the Reef-pi API to monitor the temperature and pH levels in the robo-tank. We chose this API because it is free to access and provides easy-to-use data in JSON format.
 
 Schema Design
-Our schema design includes four tables:
+Our schema design includes two tables:
 
 User Table
 user_id (primary key)
@@ -16,25 +16,13 @@ email
 This table is used to store user authentication information.
 
 Temperature Reading Table
-reading_id (primary key)
-user_id (foreign key)
-temperature
-timestamp
-This table is used to store the temperature readings taken from the robo-tank every 10 minutes. Each row in this table corresponds to a single temperature reading, and includes the temperature value and a timestamp indicating when the reading was taken. The user_id foreign key references the user_id in the User table to link each reading to the user who took it.
-
-pH Reading Table
-reading_id (primary key)
-user_id (foreign key)
-ph
-timestamp
-This table is used to store the pH readings taken from the robo-tank every 10 minutes. Each row in this table corresponds to a single pH reading, and includes the ph value and a timestamp indicating when the reading was taken. The user_id foreign key references the user_id in the User table to link each reading to the user who took it.
-
-Reading Event Table
 event_id (primary key)
-reading_id (foreign key)
-event_type
-event_timestamp
-This table is used to log each reading event, including the reading_id foreign key, event_type (either "temperature" or "pH"), and event_timestamp indicating when the reading event occurred.
+event_time (foreign key)
+temperature_reading
+pH_reading
+timestamp
+
+
 
 
 Crow's Foot Notation Diagram can be seen in .sql file
